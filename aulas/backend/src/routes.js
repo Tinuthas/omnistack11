@@ -1,16 +1,11 @@
 const express = require('express')
-
+const OngController = require('./controllers/OngController')
+const connection = require('./database/connection')
 const routes = express.Router()
 
+routes.get('/ongs', OngController.index)
 
-routes.post('/users', (req, res) => {
-    const body = req.body
-    console.log(body)
 
-    return res.json({
-        evento: 'Omnistack 11',
-        aluno: 'Vinicius Nich'
-    })
-})
+routes.post('/ongs', OngController.create)
 
 module.exports = routes
