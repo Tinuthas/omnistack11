@@ -7,5 +7,6 @@ routes.get('/ongs', OngController.index)
 routes.post('/ongs', OngController.create)
 
 routes.post('/incidents', IncidentController.create)
+routes.post('/incidents', IncidentController.index)
 
 module.exports = routes
