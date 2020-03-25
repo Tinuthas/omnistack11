@@ -26,6 +26,17 @@ app.use(express.json())
  * Route Params: Utilizados para identificar recursos
  * Request Body: Corpo da requisicao, criar ou alterar recurso
  */
+
+/**
+ * SQL: MySQL, SQLite, PostreSQL, Oracle, Microft SQL Server
+ * NoSQL: MongoDB, CouchDB, etc
+ */
+
+ /**
+  * Driver: SELECT * FROM users
+  * Query Builder: table('users').select('*').where()
+  */
+
 app.post('/users', (req, res) => {
     /*const params = req.query
     console.log(params)*/
