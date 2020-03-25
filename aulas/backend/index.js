@@ -36,7 +36,7 @@ app.post('/users', (req, res) => {
 
     return res.json({
         evento: 'Omnistack 11',
-        aluno: 'Vinicius'
+        aluno: 'Vinicius Nich'
     })
 })
 
