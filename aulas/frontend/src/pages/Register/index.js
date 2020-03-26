@@ -19,7 +19,14 @@ export default function Register() {
                      </Link>
                 </section>
                 <form action="">
-
+                    <input placeholder="Nome da ONG" />
+                    <input type="email" placeholder="E-mail"/>
+                    <input placeholder="whatsapp"/>
+                    <div className="input-group">
+                        <input placeholder="Cidade" />
+                        <input placeholder="UF" style={{width: 80}} maxlength="2" />
+                    </div>
+                    <button className="button" type="submit">Cadastrar</button>
                 </form>
             </div>
 
