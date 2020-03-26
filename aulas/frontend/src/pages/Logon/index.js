@@ -9,10 +9,10 @@ export default function Logon() {
         <div className="logon-container">
             <section className="form">
                 <img src={logoImg} alt="Be The Hero"/>
-                <form action="">
+                <form>
                     <h1>Faça seu login</h1>
                     <input placeholder="Sua ID" type="text"/>
-                    <button type="submit">Entra</button>
+                    <button className="button" type="submit">Entra</button>
                     <a href="/register">
                         <FiLogIn size={16} color="#E02041"/>
                         Não tenho cadastro
