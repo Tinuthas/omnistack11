@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import {FiArrowLeft} from 'react-icons/fi'
+import api from '../../services/api'
 
 import './styles.css'
 import logoImg from '../../assets/logo.svg'
@@ -9,6 +10,26 @@ export default function NewIncident() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [value, setValue] = useState('')
+    const ongId = localStorage.getItem('ongId')
+
+    async function handleNewIncident(e) {
+        e.preventDefault()
+        const data = {
+            title,
+            description,
+            value
+        }
+
+        try{
+            await api.post('incidents', data, {
+                headers: {
+                    Authorization: ongId
+                }
+            })
+        }catch(err) {
+            alert('Erro ao cadastrar o caso, tente novamente.')
+        }
+    }
     return (
         <div className="new-incident-container">
         <div className="content">
