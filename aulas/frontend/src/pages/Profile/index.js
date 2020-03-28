@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {FiPower, FiTrash2} from 'react-icons/fi'
+import api from '../../services/api'
 
 import logoImg from '../../assets/logo.svg'
 import './styles.css'
 
 export default function Profile() {
     const ongName = localStorage.getItem('ongName')
-    //const ongId = localStorage.getItem('ongId')
+    const ongId = localStorage.getItem('ongId')
 
+    const [incidents, setIncidents] = useState([])
+    useEffect(() => {
+        api.get('profile', {
+            headers: {
+                Authorization: ongId
+            }
+        }).then(response => {
+            setIncidents(response.data)
+        })
+    }, [ongId])
 
     return (
         <div className="profile-container">
