@@ -6,11 +6,15 @@ import logoImg from '../../assets/logo.svg'
 import './styles.css'
 
 export default function Profile() {
+    const ongName = localStorage.getItem('ongName')
+    //const ongId = localStorage.getItem('ongId')
+
+
     return (
         <div className="profile-container">
              <header>
                 <img src={logoImg} alt="Be The Hero"/>
-                <span>Bem vinda, APAD</span>
+                <span>Bem vinda, {ongName}</span>
                 <Link className = "button" to="/incidents/new">Cadastrar novo caso</Link>
                 <button type="button">
                     <FiPower size={18} color="#E02041" />
