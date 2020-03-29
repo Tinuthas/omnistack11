@@ -7,7 +7,11 @@ const ProfileController = require('./controllers/ProfileController')
 const SessionController = require('./controllers/SessionController')
 const routes = express.Router()
 
-routes.post('/session', SessionController.create)
+routes.post('/session', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        id: Joi.any().required()
+    })
+}), SessionController.create)
 
 routes.get('/ongs', OngController.index)
 routes.post('/ongs', celebrate({
