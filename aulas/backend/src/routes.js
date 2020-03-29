@@ -26,8 +26,25 @@ routes.get('/profile', celebrate({
     }).unknown()
 }), ProfileController.index)
 
-routes.post('/incidents', IncidentController.create)
-routes.get('/incidents', IncidentController.index)
-routes.delete('/incidents/:id', IncidentController.delete)
+routes.post('/incidents', celebrate({
+    [Segments.BODY] : Joi.object().keys({
+        title: Joi.string().required(),
+        description: Joi.string().required(),
+        value: Joi.number().required(),
+    }),
+        [Segments.HEADERS]: Joi.object({
+            authorization: Joi.string().required()
+        }).unknown()
+}), IncidentController.create)
+routes.get('/incidents', celebrate({
+    [Segments.QUERY] : Joi.object().keys({
+        page: Joi.number()
+    })
+}), IncidentController.index)
+routes.delete('/incidents/:id', celebrate({
+    [Segments.PARAMS]: Joi.object().keys({
+        id: Joi.number().required()
+    })
+}), IncidentController.delete)
 
 module.exports = routes
